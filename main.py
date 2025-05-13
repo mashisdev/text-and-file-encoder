@@ -3,22 +3,28 @@ from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QTextEdit,
     QLineEdit, QFileDialog, QTabWidget, QHBoxLayout
 )
-from PyQt5.QtGui import QFont
-from PyQt5.QtCore import Qt
 from crypto_utils import encrypt_text, decrypt_text, encrypt_file, decrypt_file
 
 
 class CryptoApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("🔐 Text & File Encoder")
+        self.setWindowTitle("🔐 Text & File Encryptor")
         self.setGeometry(100, 100, 800, 500)
+        self.setMinimumWidth(400)
         self.setStyleSheet("background-color: #1e1e2f; color: white;")
 
         self.tabs = QTabWidget()
         self.tabs.setStyleSheet("""
             QTabWidget::pane { border: 0; }
-            QTabBar::tab { background: #2e2e3e; color: white; padding: 10px; font-size: 16px; }
+            QTabBar::tab {
+                background: #2e2e3e;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                min-width: 150px;
+                min-height: 25px;
+            }
             QTabBar::tab:selected { background: #3e3e5e; }
         """)
 
@@ -101,7 +107,7 @@ class CryptoApp(QWidget):
             else:
                 self.result_label.setText("⚠️ Please provide both text and a secret.")
         except Exception as e:
-            self.result_label.setText(f"❌ Error: {e}")
+            self.result_label.setText(f"❌ Error {e}")
 
     def handle_decrypt_text(self):
         hex_text = self.text_input.toPlainText()
@@ -113,7 +119,7 @@ class CryptoApp(QWidget):
             else:
                 self.result_label.setText("⚠️ Please provide both encrypted text and a secret.")
         except Exception as e:
-            self.result_label.setText(f"❌ Error: {e}")
+            self.result_label.setText(f"❌ Error {e}")
 
     def select_file_to_encrypt(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "Select file to encrypt")
@@ -122,7 +128,7 @@ class CryptoApp(QWidget):
                 encrypt_file(file_path, self.secret_input.text())
                 self.file_status.setText("✅ File encrypted successfully.")
             except Exception as e:
-                self.file_status.setText(f"❌ Error: {e}")
+                self.file_status.setText(f"❌ Error {e}")
 
     def select_file_to_decrypt(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "Select file to decrypt")
@@ -131,7 +137,7 @@ class CryptoApp(QWidget):
                 decrypt_file(file_path, self.secret_input.text())
                 self.file_status.setText("✅ File decrypted successfully.")
             except Exception as e:
-                self.file_status.setText(f"❌ Error: {e}")
+                self.file_status.setText(f"❌ Error {e}")
 
 
 if __name__ == '__main__':
