@@ -1,5 +1,4 @@
 import os
-import tempfile
 import pytest
 from crypto_utils import (
     derive_key,
