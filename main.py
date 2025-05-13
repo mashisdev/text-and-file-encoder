@@ -22,7 +22,7 @@ class CryptoApp(QWidget):
                 color: white;
                 padding: 10px;
                 font-size: 16px;
-                min-width: 150px;
+                min-width: 168px;
                 min-height: 25px;
             }
             QTabBar::tab:selected { background: #3e3e5e; }
