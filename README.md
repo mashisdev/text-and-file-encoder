@@ -1,4 +1,4 @@
-﻿# 🔐Text & file encoder
+﻿# 🔐Text & file encryptor
 This is a secure desktop application built with PyQt5 that allows you to encrypt and decrypt text and files using a secret phrase. The app uses robust encryption techniques to ensure the security of your data. It supports encrypting and decrypting both text and files of any extension.
 
 ### Features
