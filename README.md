@@ -18,6 +18,10 @@ To run the project locally, follow these steps:
   python main.py
   ```
 
+## 🖥️GUI
+![image](https://github.com/user-attachments/assets/69790131-f587-4bcf-aa40-76800d2286dc)
+![image](https://github.com/user-attachments/assets/d0a92591-e99f-48c9-9680-04705f716b8e)
+
 ## 🧪Run Tests
 
   ``` bash
